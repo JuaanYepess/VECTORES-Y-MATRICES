@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#define ESTUDIANTES 5 // [cite: 18]
-#define ASIGNATURAS 3 // [cite: 18]
-#define MIN_APROBACION 6.0 // [cite: 28]
+#define ESTUDIANTES 5 
+#define ASIGNATURAS 3 
+#define MIN_APROBACION 6.0 
 
 int main() {
     float calificaciones[ESTUDIANTES][ASIGNATURAS];
@@ -18,6 +18,15 @@ int main() {
                 }
             } while (calificaciones[i][j] < 0 || calificaciones[i][j] > 10);
         }
+    }
+    
+    printf("\nPROMEDIO POR ESTUDIANTE\n"); 
+    for (int i = 0; i < ESTUDIANTES; i++) {
+        float suma = 0;
+        for (int j = 0; j < ASIGNATURAS; j++) {
+            suma += calificaciones[i][j];
+        }
+        printf("Estudiante %d -> Promedio: %.2f\n", i + 1, suma / ASIGNATURAS);
     }
     return 0;
 }
